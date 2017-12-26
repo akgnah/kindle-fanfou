@@ -86,8 +86,8 @@ if __name__ == '__main__':
     server = 'pop.qq.com'    # 邮箱 pop3 服务地址
     user = 'xxxxxx@qq.me'    # 邮箱地址
     pass_ = 'qwertyuiopz'    # 授权码
-    consumer = {'key': '3a88d9337021d6589defce1879060d75',
-                'secret': 'd5493ec89b9d9a6fa6578ca0a673d00c'}    # 你的 Consumer
+    consumer = {'key': 'your key',
+                'secret': 'your secret'}    # 你的 Consumer
 
     client = fanfou.XAuth(consumer, 'username', 'password')      # 你的用户名和密码
     fanfou.bound(client)
