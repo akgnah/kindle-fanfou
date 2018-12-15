@@ -51,9 +51,9 @@ class Inbox:
                     if charset:
                         content = content.decode(charset)
         templates = (
-            u'Hi, I\'m reading this book, and wanted to share this quote with you\.[\r\n]+"([\s\S]+)" \(by',
-            u'Hi, I\'m reading this book, and wanted to share this quote with you\.[\r\n]+"([\s\S]+)" \(from',
-            u'Hi, I\'m reading this book, and wanted to share this quote with you\.[\r\n]+《([\s\S]+)》\(摘自由',
+            u'Hi, I[\'ʼ]m reading this book,? and wanted to share this quote with you\.[\r\n]+"([\s\S]+)" \(by',
+            u'Hi, I[\'ʼ]m reading this book,? and wanted to share this quote with you\.[\r\n]+"([\s\S]+)" \(from',
+            u'Hi, I[\'ʼ]m reading this book,? and wanted to share this quote with you\.[\r\n]+《([\s\S]+)》\(摘自由',
             u'您好，我觉得这本书值得一读，您怎么看？[\r\n]+"([\s\S]+)" by',
             u'嗨，我正在读这本书，想跟您分享一句名言。[\r\n]+"([\s\S]+)" \(from',
             u'嗨，我正在读这本书，想跟您分享一句名言。[\r\n]+《([\s\S]+)》\(摘自由',
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     fanfou.bound(client)
 
     for mail in Inbox(server, user, pass_).fetch():
-        print 'update {0}'.format(mail['mail_id'])
+        print('update {0}'.format(mail['mail_id']))
         client.statuses.update({'status': mail['text']})
         db[mail['mail_id']] = 1
         time.sleep(0.5)
