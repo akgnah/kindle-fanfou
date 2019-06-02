@@ -73,8 +73,9 @@ class Inbox:
             pos = content_type.find('charset=')
             if pos >= 0:
                 charset = content_type[pos + 8:].strip()
-                if content_type.find('format=') >= 0:
-                    charset = charset[:charset.find(';')]
+                end_pos = charset.find(';')
+                if end_pos > 0:
+                    charset = charset[:end_pos]
                 charset = charset.strip('"').strip("'")
         return charset or 'utf-8'
 
